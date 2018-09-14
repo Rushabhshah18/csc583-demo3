@@ -1,3 +1,5 @@
+from sqlalchemy.exc import IntegrityError, InvalidRequestError
+
 from manager.manager_database import DatabaseManager
 from models.model_user import User
 
@@ -16,8 +18,15 @@ class UserManager(object):
         :return:
         """
         user = User(username=kwargs.get('usr'), password=kwargs.get('pwd'))
-        self._SESSSION.add(user)
-        self._SESSSION.commit()
+        try:
+            self._SESSSION.add(user)
+            self._SESSSION.commit()
+            print("User saved in database.\n")
+        except IntegrityError:
+            print("Username already exist! Please try again.\n")
+            self._SESSSION.rollback()
+        except InvalidRequestError:
+            self._SESSSION.rollback()
 
     def fetch_last_user(self):
         """

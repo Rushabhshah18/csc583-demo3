@@ -39,12 +39,18 @@ class Main(object):
         elif menu == 2:
             # Fetch last user
             user = user_manager.fetch_last_user()
-            print("Username: " + user.username + "\t Password: " + user.password)
+            if user:
+                print("Username: " + user.username + "\t Password: " + user.password)
+            else:
+                print("No users in the database atm. Create one now from menu.")
         elif menu == 3:
             # Fetch all users
             users = user_manager.fetch_all_users()
-            for user in users:
-                print("Username: " + user.username + "\t Password: " + user.password)
+            if users:
+                for user in users:
+                    print("Username: " + user.username + "\t Password: " + user.password)
+            else:
+                print("No users in the database atm. Create one now from menu.")
         else:
             print("Please select correct option. Try again")
             self._fetch_moptions()
