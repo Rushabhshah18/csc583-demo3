@@ -1,6 +1,14 @@
 # CSC583-demo3
 A command line tool to connect and query to a mysql database.
 
+## Objective
+
++ Create a database on AWS (RDS using a mySQL instance or whatever is free to create)
++ Put it in region that is on the east coast
++ Create a table with user and password column
++ Store and retrieve the data 
++ Use any code/language to store and retrieve data. It could be in console or on web-page.
+
 ## Install Dependencies
 Core dependencies
 ```
