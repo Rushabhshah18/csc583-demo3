@@ -227,3 +227,6 @@ venv.bak/
 .mypy_cache/
 
 .idea/*
+
+# Settings
+settings.py
